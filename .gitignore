@@ -5,7 +5,6 @@ __pycache__/
 *$py.class
 data/
 refresh_/
-*.py
 *.params
 
 # C extensions
