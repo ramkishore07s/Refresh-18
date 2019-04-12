@@ -45,19 +45,23 @@ filenames = [f for f in os.listdir(input_folder) if ".txt" in f]
 
 g = GloveEmbeddings()
 g.load_dump(args.glove)
-
+if cpu:
+    vectors = torch.FloatTensor(g.vectors)
+else:
+    vectors = torch.cuda.FloatTensor(g.vectors)
 d = DataHandler()
 
 
 # In[58]:
 
 
-m = EncoderDecoder(torch.cuda.FloatTensor(g.vectors), word_emb_size=g.dim, 
+m = EncoderDecoder(vectors, word_emb_size=g.dim, 
                        sen_emb_size=350, doc_emb_size=600, sen_len=50, batch_size=20, output_dim=2,
                        reverse=True)
 
 m.load_state_dict(torch.load(args.weights))
-#m.cuda()
+
+if not cpu: m.cuda()
 
 
 # In[68]:
