@@ -34,12 +34,21 @@ data_converter.root_convert('../data/parsed_data/dailymail/', '../data/processed
 # In[ ]:
 
 
+<<<<<<< HEAD
 #greedy_label_generator('../data/parsed_data/cnn/training/documents/', 
 #                       '../data/parsed_data/cnn/training/summaries/',
 #                       '../data/processed/cnn/greedy_train_summary_labels.pkl')
 #greedy_label_generator('../data/parsed_data/dailymail/training/documents/', 
 #                       '../data/parsed_data/dailymail/training/summaries/',
 #                       '../data/processed/dailymail/greedy_train_summary_labels.pkl')
+=======
+greedy_label_generator('../data/parsed_data/cnn/training/documents/', 
+                       '../data/parsed_data/cnn/training/summaries/',
+                       '../data/processed/cnn/greedy_train_summary_labels.pkl')
+greedy_label_generator('../data/parsed_data/dailymail/training/documents/', 
+                       '../data/parsed_data/dailymail/training/summaries/',
+                       '../data/processed/dailymail/greedy_train_summary_labels.pkl')
+>>>>>>> 14ba256f457a7ef567dfb2011af64a82a4e13fb4
 
 # Generate multiple summary scores
 

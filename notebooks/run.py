@@ -3,6 +3,7 @@
 
 # In[72]:
 
+import os
 import shutil
 import nltk
 import argparse
@@ -22,8 +23,12 @@ args = parser.parse_args()
 get_ipython().magic('run dataset.ipynb')
 get_ipython().magic('run model.ipynb')
 
+cpu = False
+if args.gpu_no == -1:
+    cpu = True
 
-torch.cuda.set_device(args.gpu_no)
+
+if not cpu: torch.cuda.set_device(args.gpu_no)
 
 # In[79]:
 
@@ -39,7 +44,7 @@ filenames = [f for f in os.listdir(input_folder) if ".txt" in f]
 
 
 g = GloveEmbeddings()
-g.load_dump('../data/glove.pkl')
+g.load_dump(args.glove)
 
 d = DataHandler()
 
@@ -52,7 +57,7 @@ m = EncoderDecoder(torch.cuda.FloatTensor(g.vectors), word_emb_size=g.dim,
                        reverse=True)
 
 m.load_state_dict(torch.load(args.weights))
-m.cuda()
+#m.cuda()
 
 
 # In[68]:
@@ -72,7 +77,8 @@ for i in range(0, len(filenames), batch_size):
         d.pad()
 
         with torch.no_grad():
-            pred = m(torch.cuda.LongTensor(d.lines))
+            if not cpu: pred = m(torch.cuda.LongTensor(d.lines))
+            else: pred = m(torch.LongTensor(d.lines))
             for i, lines in enumerate(pred.data):
                 pos = [l[1].data for l in lines]
                 selected_lines = list(zip(*sorted(zip(pos, range(len(pos))), key=lambda x: x[0], reverse=True)))[1][0:summary_len]
