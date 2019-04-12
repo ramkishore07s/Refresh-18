@@ -21,10 +21,6 @@ torch.cuda.set_device(1)
 
 g = NeuralSumToEmbedding(glove_filename='/home/ramkishore.s/meta/glove/glove.6B.200d.txt')
 g.vectors = g.vectors.reshape(-1, g.dim)
-<<<<<<< HEAD
-g.dump_all('../data/glove.pkl')
-=======
->>>>>>> 14ba256f457a7ef567dfb2011af64a82a4e13fb4
 
 logging.info('Loaded Glove embeddings')
 
@@ -77,23 +73,14 @@ if not os.path.exists('../temp'):  os.mkdir('../temp')
 for i in range(iterations):
     logging.info('iteration: ' + str(i))
     train_refresh(m, batches=train.batches, lines=train.lines, scores=summary_scores, 
-<<<<<<< HEAD
                           iterations=1, max_=5, single_sample=True)
-=======
-                          iterations=1, max_=15, single_sample=True)
->>>>>>> 14ba256f457a7ef567dfb2011af64a82a4e13fb4
     
     get_summaries(m, test.lines, test.batches, 
                       doc_folder='../data/parsed_data/cnn/test/documents/', 
                       write_folder='../temp/', 
-                      output_dim=2, summary_len=3)
+                      output_dim=2, summary_len="variable")
     
     logging.info('computing rouge on test data')
     scores = computeRouge('../data/parsed_data/cnn/test/summaries/', '../temp/')
-    
-<<<<<<< HEAD
     torch.save(m.state_dict(), 'R_' + str(scores[0]) + '.params')
-=======
-    torch.save(m.state_dict(), 'R1_f1_' + str(scores[0]) + '.params')
->>>>>>> 14ba256f457a7ef567dfb2011af64a82a4e13fb4
 
