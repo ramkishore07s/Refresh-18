@@ -9,12 +9,21 @@ Find the original code <a href='https://github.com/EdinburghNLP/Refresh'>here</a
 
 * Download model weights from [here](https://drive.google.com/open?id=1uXWa4g5PZtGCICEtOm0ZxjpLe_sJiWK7) and save it.
 * Download Glove cache from [here](https://drive.google.com/file/d/1MsijgP0oreEJwBM7QZPQRhZUe9-MTE-T/view?usp=sharing) and save it.
+<<<<<<< HEAD
 * Run:
     ``` 
     cd notebooks
 
     ipython run.py -- --input_folder=<path/to/document_folder> --output_folder=<path/to/summary_folder> --weights=<path/to/saved/weights/> --glove=<path/to/glove/cache> --gpu_no=0 --summary_len=3
 ```
+=======
+* run :
+  ``` 
+  cd notebooks
+
+  ipython run.py -- --input_folder=<path/to/document_folder> --output_folder=<path/to/summary_folder> --weights=<path/to/saved/weights/> --glove=<path/to/glove/cache> --gpu_no=0 --summary_len=3
+  ```
+>>>>>>> aee26894a8a2d8be8c1a68208d6b9992e3022cb0
 
 ## Training
 
