@@ -5,7 +5,7 @@ Find the original code <a href='https://github.com/EdinburghNLP/Refresh'>here</a
 
 ## Running the summarizer:
 
-**NOTE: code requires GPU to run**
+**NOTE: to run on CPU, set `--gpu_no` argument to -1**
 
 * Download model weights from [here](https://drive.google.com/open?id=1uXWa4g5PZtGCICEtOm0ZxjpLe_sJiWK7) and save it.
 * Download Glove cache from [here](https://drive.google.com/file/d/1MsijgP0oreEJwBM7QZPQRhZUe9-MTE-T/view?usp=sharing) and save it.
