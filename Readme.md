@@ -15,15 +15,15 @@ Find the original code <a href='https://github.com/EdinburghNLP/Refresh'>here</a
     cd notebooks
 
     ipython run.py -- --input_folder=<path/to/document_folder> --output_folder=<path/to/summary_folder> --weights=<path/to/saved/weights/> --glove=<path/to/glove/cache> --gpu_no=0 --summary_len=3
-```
-=======
-* run :
-  ``` 
-  cd notebooks
 
-  ipython run.py -- --input_folder=<path/to/document_folder> --output_folder=<path/to/summary_folder> --weights=<path/to/saved/weights/> --glove=<path/to/glove/cache> --gpu_no=0 --summary_len=3
+
+
+
+
+
+
   ```
->>>>>>> aee26894a8a2d8be8c1a68208d6b9992e3022cb0
+
 
 ## Training
 
